@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/ivLogoApp"
+        android:transitionName="logoApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_logo_splash"
@@ -19,6 +20,7 @@
 
     <TextView
         android:id="@+id/tvAppName"
+        android:transitionName="textApp"
         style="@style/splash_text"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="@+id/ivLogoApp"
