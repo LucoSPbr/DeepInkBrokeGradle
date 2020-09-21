@@ -25,4 +25,12 @@
 
     <string name="signup_subtitle">Preencha os dados da sua conta</string>
 
+    <string name="email_not_empty">Informe um e-mail</string>
+    <string name="password_not_empty">Informe uma senha</string>
+    <string name="password_invalid">Informe uma senha válida</string>
+
+    <string name="loading_message_processing">Processando</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+
+    <string name="com.crashlytics.useFirebaseAppId" translatable="false">true</string>
 </resources>
