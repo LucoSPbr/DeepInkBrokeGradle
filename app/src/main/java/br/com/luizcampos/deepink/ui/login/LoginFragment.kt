@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
 import br.com.luizcampos.deepink.R
+import br.com.luizcampos.deepink.R.id
 import br.com.luizcampos.deepink.exceptions.EmailInvalidException
 import br.com.luizcampos.deepink.exceptions.PasswordInvalidException
 import br.com.luizcampos.deepink.extensions.hideKeyboard
@@ -18,7 +19,7 @@ import br.com.luizcampos.deepink.extensions.hideKeyboard
 import br.com.luizcampos.deepink.models.RequestState
 import br.com.luizcampos.deepink.ui.base.BaseFragment
 import br.com.luizcampos.deepink.ui.base.auth.NAVIGATION_KEY
-
+import br.com.luizcampos.deepink.ui.home.HomeViewModel
 
 class LoginFragment : BaseFragment() {
 
@@ -47,12 +48,10 @@ class LoginFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpView(view)
-        startLoginAnimation()
+        homeViewModel.createMenu()
         registerObserver()
 
         registerBackPressedAction()
-
-
     }
 
     private fun registerBackPressedAction() {
@@ -136,11 +135,11 @@ class LoginFragment : BaseFragment() {
 
         tvNewAccount.setOnClickListener {
             NavHostFragment.findNavController(this)
-                .navigate(R.id.action_loginFragment_to_signUpFragment)
+                .navigate(R.id.action_loginFragment_to_signupFragment)
         }
     }
 
-    private fun startLoginAnimation() {
+    fun startLoginAnimation() {
         val anim = AnimationUtils.loadAnimation(context, R.anim.anim_form_login)
         containerLogin.startAnimation(anim)
         tvSubTitleLogin.startAnimation(anim)

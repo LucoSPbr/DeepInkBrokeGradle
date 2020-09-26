@@ -19,6 +19,7 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@drawable/ic_logo_splash" />
 
+
     <TextView
         android:layout_marginTop="16dp"
         android:id="@+id/tvTitleUpdateApp"

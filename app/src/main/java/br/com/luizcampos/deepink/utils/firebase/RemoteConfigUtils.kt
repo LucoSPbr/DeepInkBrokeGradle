@@ -20,12 +20,10 @@ object RemoteConfigUtils {
 
         remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
         remoteConfig.setConfigSettingsAsync(configSettings)
-        val cacheExpiration = if (BuildConfig.DEBUG) 0L else 720L
-        remoteConfig.fetch(cacheExpiration)
         return remoteConfig
     }
 
     fun fetchAndActivate(): Task<Boolean> {
-        return getFirebaseRemoteConfig().activate()
+        return getFirebaseRemoteConfig().fetchAndActivate()
     }
 }

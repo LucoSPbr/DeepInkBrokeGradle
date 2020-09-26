@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="br.com.luizcampos.deepink.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_betterShopFragment"
+            app:destination="@id/betterShopFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_tatuadoresListFragment"
+            app:destination="@id/tatuadoresListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calculateTripFragment"
+            app:destination="@id/calculateTripFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_lojasFragment"
+            app:destination="@id/lojasFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_betterTattooFragment"
+            app:destination="@id/betterTattooFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/betterShopFragment"
+        android:name="br.com.luizcampos.deepink.ui.bettershop.BetterShopFragment"
+        android:label="BetterShopFragment"
+        tools:layout="@layout/fragment_better_shop" >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://www.deepink.com.br/bettershop" />
+    </fragment>
+    <fragment
+        android:id="@+id/betterTattooFragment"
+        android:name="br.com.luizcampos.deepink.ui.bettertattoo.BetterTattooFragment"
+        android:label="BetterTattooFragment"
+        tools:layout="@layout/fragment_better_tattoo">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://www.deepink.com.br/bettertattoo" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculateTripFragment"
+        android:name="br.com.luizcampos.deepink.ui.calculatetrip.CalculateTripFragment"
+        android:label="fragment_calculate_trip"
+        tools:layout="@layout/fragment_calculate_trip" >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://www.deepink.com.br/calculatetrip" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/lojasFragment"
+        android:name="br.com.luizcampos.deepink.ui.lojas.LojasFragment"
+        android:label="fragment_lojas"
+        tools:layout="@layout/fragment_lojas" >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://www.deepink.com.br/lojas" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tatuadoresListFragment"
+        android:name="br.com.luizcampos.deepink.ui.tatuadores.list.TatuadoresListFragment"
+        android:label="fragment_tatuadores_list"
+        tools:layout="@layout/fragment_tatuadores_list" >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://www.deepink.com.br/listatatuadores" />
+    </fragment>
+
+    <include app:graph="@navigation/login_nav_graph" />
 </navigation>

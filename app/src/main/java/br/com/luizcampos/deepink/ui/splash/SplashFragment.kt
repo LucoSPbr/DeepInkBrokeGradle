@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment
 import br.com.luizcampos.deepink.R
+import br.com.luizcampos.deepink.utils.firebase.RemoteConfigUtils
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class SplashFragment : Fragment() {
@@ -29,17 +30,39 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpView(view)
-        startAnimation()
         Handler().postDelayed({
             val extras = FragmentNavigatorExtras(
                 ivLogoApp to "logoApp",
                 tvAppName to "textApp"
             )
             NavHostFragment.findNavController(this)
-                .navigate(R.id.action_splashFragment_to_login_nav_graph,
-                null, null, extras)
+                .navigate(
+                    R.id.action_splashFragment_to_main_nav_graph,
+                    null, null, extras
+                )
         }, 2000)
+      updateRemoteConfig()
+    }
+
+    private fun updateRemoteConfig() {
+        Handler().postDelayed({
+            RemoteConfigUtils.fetchAndActivate()
+                .addOnCompleteListener {
+                    nextScreen()
+                }
+        }, 2000)
+    }
+
+    private fun nextScreen() {
+        val extras = FragmentNavigatorExtras(
+            ivLogoApp to "logoApp",
+            tvAppName to "textApp"
+        )
+        NavHostFragment.findNavController(this)
+            .navigate(
+                R.id.action_loginFragment_to_main_nav_graph,
+                null, null, extras
+            )
     }
 
     private fun startAnimation() {

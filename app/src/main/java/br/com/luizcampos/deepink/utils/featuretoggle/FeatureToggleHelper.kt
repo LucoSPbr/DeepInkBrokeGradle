@@ -66,7 +66,12 @@ class FeatureToggleHelper {
         val builder = AlertDialog.Builder(ctx)
         builder.setTitle("Eitcha!")
         builder.setMessage("Funcionalidade temporariamente indisponível")
-        builder.setPositiveButton(android.R.string.yes) { dialog, which -> }
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            Toast.makeText(
+                ctx,
+                android.R.string.yes, Toast.LENGTH_SHORT
+            ).show()
+        }
         builder.show()
     }
 }

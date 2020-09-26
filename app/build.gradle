@@ -7,6 +7,8 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    ndkVersion  "21.0.6113669"
+
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8 }
@@ -24,34 +26,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
-    flavorDimensions "app"
-
-    productFlavors {
-        dev {
-            applicationIdSuffix ".dev"
-            dimension "app"
-            buildConfigField 'String', 'APP_ID', '"665c3bf8-84b4-4aca-a37f-db54fd9495e0"'
-        }
-
-        hml {
-            applicationIdSuffix ".hml"
-            dimension "app"
-            buildConfigField 'String', 'APP_ID', '"665c3bf8-84b4-4aca-a37f-db54fd9495e0"'
-        }
-
-        prd {
-            dimension "app"
-            buildConfigField 'String', 'APP_ID', '"665c3bf8-84b4-4aca-a37f-db54fd9495e0"'
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {
@@ -61,31 +35,30 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.firebase:firebase-auth:19.4.0'
     implementation 'com.google.firebase:firebase-core:17.5.0'
     implementation 'com.google.firebase:firebase-config-ktx:19.2.0'
+    implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation "androidx.navigation:navigation-fragment-ktx:2.2.2"
-    implementation "androidx.navigation:navigation-ui-ktx:2.2.2"
-
     implementation 'com.airbnb.android:lottie:3.4.1'
-
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation "androidx.fragment:fragment-ktx:1.2.5"
-
     implementation 'br.com.concrete:canarinho:2.0.1'
-
-    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
-
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.6.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
-
     implementation "com.orhanobut:hawk:2.0.1"
+    implementation "br.com.concrete:canarinho:2.0.1"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.10.1')
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'io.fabric'

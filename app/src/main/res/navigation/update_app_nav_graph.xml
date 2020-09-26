@@ -5,10 +5,10 @@
     android:id="@+id/update_app_nav_graph"
     app:startDestination="@id/updateAppFragment">
 
+
     <fragment
         android:id="@+id/updateAppFragment"
         android:name="br.com.luizcampos.deepink.ui.updateapp.UpdateAppFragment"
-        android:label="fragment_update_app"
-        tools:layout="@layout/fragment_update_app" />
-
+        android:label="UpdateAppFragment"
+        tools:layout="@layout/fragment_update_app"/>
 </navigation>

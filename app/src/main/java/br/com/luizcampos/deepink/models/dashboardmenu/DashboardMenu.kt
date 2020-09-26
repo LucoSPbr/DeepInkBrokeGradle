@@ -13,7 +13,7 @@ data class DashboardItem(
     val image: String,
     val label: String,
     val action: DashboardAction,
-    var onDisabledListener: ((Context) -> Unit)?
+    val onDisabledListener: Any,
 )
 
 data class DashboardAction(
